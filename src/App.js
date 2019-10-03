@@ -17,7 +17,9 @@ function App() {
 			text: "Peel an orange for a laugh",
 			isCompleted: false
 		}
-	]);
+  ]);
+  
+  
 
 	const addTodo = text => {
 		const NewTodos = [...todos, { text }];
@@ -30,10 +32,10 @@ function App() {
 		setTodos(newTodos);
 	};
 
-	const completeTodo = index => {
+	const markTodo = index => {
 		const newTodos = [...todos];
-		newTodos[index].isCompleted = true;
-		setTodos(newTodos);
+    newTodos[index].isCompleted = !newTodos[index].isCompleted;
+    setTodos(newTodos);
 	};
 
 	return (
@@ -44,7 +46,7 @@ function App() {
 						key={index}
 						index={index}
 						todo={todo}
-						completeTodo={completeTodo}
+						markTodo={markTodo}
 						deleteTodo={deleteTodo}
 					/>
 				))}

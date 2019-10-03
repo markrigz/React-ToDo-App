@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function Todo({ todo, index, completeTodo, deleteTodo }) {
-	const [buttonText, setButtonText] = useState("Mark Complete");
+function Todo({ todo, index, markTodo, deleteTodo}) {
+  
+  const buttonText = todo.isCompleted ? "Mark inComplete" : "Mark Complete";
+
 
 	return (
 		<div
@@ -10,7 +12,7 @@ function Todo({ todo, index, completeTodo, deleteTodo }) {
 		>
 			<li>{todo.text}</li>
 			<div>
-				<button onClick={() => completeTodo(index)}>{buttonText}</button>
+				<button onClick={() => markTodo(index)}>{buttonText}</button>
 				<button onClick={() => deleteTodo(index)}>X</button>
 			</div>
 		</div>
